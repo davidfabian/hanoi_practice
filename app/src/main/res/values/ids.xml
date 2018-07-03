@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources>
+
+
+    <item name="guidelineAB" type="id" />
+    <item name="guidelineBC" type="id" />
+    <item name="jatek_constraintlayout" type="id" />
+    <item name="button1" type="id" />
+    <item name="bottom_button" type="id" />
+
+</resources>

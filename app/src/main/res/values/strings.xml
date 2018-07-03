@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Tornyok</string>
+    <string name="increase">+</string>
+    <string name="decrease">-</string>
+    <string name="start">start</string>
+    <string name="back">back</string>
+    <string name="levels">Levels:</string>
+    <string name="toplevel">1</string>
+</resources>
