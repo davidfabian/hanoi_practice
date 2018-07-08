@@ -59,7 +59,11 @@ public class Jatek extends AppCompatActivity {
 //position it to the first third of the screen. buttons right side constrained to AB guideline's left side
             constraintSet.connect(btn.getId(), ConstraintSet.RIGHT, guidelineAB.getId(), ConstraintSet.LEFT);
 //add the button to a group, a vertical chain spread evenly in the available space
-            constraintSet.setVerticalChainStyle(btn.getId(), ConstraintSet.CHAIN_SPREAD_INSIDE);
+            constraintSet.setVerticalChainStyle(btn.getId(), ConstraintSet.CHAIN_PACKED);
+////set button width
+            constraintSet.constrainWidth(btn.getId(), 0);
+            constraintSet.setMargin(btn.getId(), ConstraintSet.START, (levelCount - i) * 30);
+            constraintSet.setMargin(btn.getId(), ConstraintSet.END, (levelCount - i) * 30);
 //the bottom level button vertically constrained to the bottom of the screen
             if (i == levelCount) {
                 constraintSet.connect(btn.getId(), ConstraintSet.BOTTOM, constraintLayout.getId(), ConstraintSet.BOTTOM);
