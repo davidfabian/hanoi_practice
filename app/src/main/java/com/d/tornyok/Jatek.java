@@ -24,17 +24,20 @@ public class Jatek extends AppCompatActivity {
 //get the number of levels from MainActivity, and instantiate the guidelines
         Intent intent = getIntent();
         int levelCount = intent.getIntExtra(MainActivity.EXTRA_MESSAGE, 3);
+        int screen_x = intent.getIntExtra(MainActivity.EXTRA_X, 110);
+        int screen_y = intent.getIntExtra(MainActivity.EXTRA_Y, 120);
+
         guidelineAB = new Guideline(this);
         guidelineBC = new Guideline(this);
         guidelineAB.setId(R.id.guidelineAB);
         guidelineBC.setId(R.id.guidelineBC);
 //call the starting layout builder method.
-        createLevels(levelCount, constraintLayout);
+        createLevels(levelCount, constraintLayout, screen_x, screen_y);
 
     }
 
 
-    public void createLevels(int levelCount, ConstraintLayout constraintLayout) {
+    public void createLevels(int levelCount, ConstraintLayout constraintLayout, int screen_x, int screen_y) {
 //create a sketch (ConstraintSet)of the layout changes
         ConstraintSet constraintSet = new ConstraintSet();
 //add first guideline, AB, at first third of the screen
@@ -49,6 +52,7 @@ public class Jatek extends AppCompatActivity {
         for (int i = levelCount; i >= 1; i--) {
             Button btn = new Button(this);
             btn.setText(String.format("%d", i));
+//            btn.setText(String.format("%d", screen_y));
             btn.setId(i);
             final int id_ = btn.getId();
 //add button to the layout

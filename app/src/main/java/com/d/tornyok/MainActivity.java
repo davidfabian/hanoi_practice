@@ -8,10 +8,14 @@ import android.widget.TextView;
 //start screen. showing the number of levels, increase, decrease and start the game
 
 public class MainActivity extends AppCompatActivity {
-    //    intent id
+    //    intent extra id's
     public static final String EXTRA_MESSAGE = "NUMBER_OF_LEVELS";
-    //    int tot store number of levels
+    public static final String EXTRA_X = "X_DIMENSION";
+    public static final String EXTRA_Y = "Y_DIMENSION";
+    //    store number of levels and screen size
     int levelCount;
+    int x_size = 12;
+    int y_size = 13;
     //    shows a number, the number of levels
     TextView TVLevelCounter;
 
@@ -20,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TVLevelCounter = findViewById(R.id.tv_levelcounter);
+        //default level count
         levelCount = 3;
+        //update levelcount
         updateCounter(levelCount);
     }
 
@@ -29,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
     public void sendMessage(View view) {
         Intent intent = new Intent(this, Jatek.class);
         intent.putExtra(EXTRA_MESSAGE, levelCount);
+
+        x_size = view.getRootView().getWidth();
+        y_size = view.getRootView().getHeight();
+
+        intent.putExtra(EXTRA_X, x_size);
+        intent.putExtra(EXTRA_Y, y_size);
         startActivity(intent);
     }
 
@@ -54,5 +66,7 @@ public class MainActivity extends AppCompatActivity {
     public void updateCounter(int levelcount) {
         String levelString = String.format(getResources().getString(R.string.levels) + " %d", levelcount);
         TVLevelCounter.setText(levelString);
+
+
     }
 }
